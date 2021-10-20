@@ -1,0 +1,80 @@
+<!DOCTYPE html>  
+<html>  
+<head>  
+<title>to 范丹凤</title>
+<meta charset="UTF-8">
+<style>
+body{
+    margin:0;
+    padding: 0;
+    width: 100%;
+    height: 100vh;
+    overflow:hidden;
+    background:url("image/love.jpg") no-repeat;
+    background-size: 100% 100%;
+    opacity: 0.85;
+    position: relative;
+}    
+.time{
+ width: 80vw;
+ height: 100vh;
+ padding: 100px 5vh;
+ color: black;
+ font-size: 40px;
+ font-weight: 700;
+ z-index: 1000;
+ text-align: center;
+ position: absolute;
+ top:0;
+ left:0;
+ display: none; 
+}
+.date{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    font-size: 32px;
+    font-weight: bold;
+    display: none;
+}
+</style>   
+</head>  
+<body>
+    <div class="time"></div>
+    <p class="date">
+        <span>仵文豪</span>
+        <br/>
+        <span>2021年10月20日</span>
+    </p>
+</body>  
+</html>
+<script type="text/javascript"> 
+    window.onload = function () {          
+        time = document.querySelector(".time"); 
+        date = document.querySelector(".date"); 
+        var num = 0;
+        var jump = 0;
+        var timeUp = 210;
+        var content = '';
+        var text1 = `亲爱的范范,很开心你出现在我生命里,有幸遇见你,从和你的第一次见面开始,我就更加的对你着了迷,我也从此开始了改变,我很普通也很平凡,但我会努力成为你更好的另一半,我粗心大意,不太懂浪漫,有时候还不用心,也偶尔会惹你不开心,但你能不能原谅他呀,因为你的男朋友没有这么多经验,我没有很好,你不嫌弃就好,你不用多好,我喜欢就好,我会尽我所能,去爱你的所有,说一万遍我爱你,还不如看行动,往后余生,有你足矣`
+        var split1 = text1.split('').reverse()
+        var timer = setInterval(()=>{
+            timeUp--;
+            if(timeUp<199){
+                time.style.display = 'block'
+                    if (timeUp>=0) {
+                        if(split1[timeUp] === ','){
+                            split1[timeUp] = '<br>'
+                        }
+                        content += split1[timeUp]
+                    } 
+                    console.log(content);
+                    time.innerHTML = content  
+            }
+            if (timeUp<0) {
+                date.style.display = 'block'
+                clearInterval(timer)
+            }
+        },400)
+    }
+</script>  
